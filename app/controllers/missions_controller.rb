@@ -25,9 +25,13 @@ class MissionsController < ApplicationController
 
     respond_to do |format|
       if @mission.save
-        create_planet(@mission)
-        format.html { redirect_to @mission, notice: "Mission was successfully created." }
-        format.json { render :show, status: :created, location: @mission }
+        new_planet_discovered = create_planet(@mission)
+        if new_planet_discovered
+          format.html { redirect_to @mission, notice: "Mission was successfully created." }
+          format.json { render :show, status: :created, location: @mission }
+        else
+          format.html { redirect_to @mission, notice: "Mission does not found planet" }
+        end
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @mission.errors, status: :unprocessable_entity }
@@ -73,8 +77,8 @@ class MissionsController < ApplicationController
       planet = Planet.new
       planet.name = rand(1..999).to_s + " " + [ "a", "b", "c", "d" ].sample
       planet.mission_id = mission.id
-      planet.supply_oxygen = rand(0..10)
-      planet.supply_food = rand(-3..8)
+      planet.supply_oxygen = rand(-10..1)
+      planet.supply_food = rand(-3..2)
       planet.supply_energy = rand(-10..10)
       planet.radiation = rand(0..10)
       planet.temperature = rand(-100..100)

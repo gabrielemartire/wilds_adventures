@@ -22,6 +22,6 @@ class Mission < ApplicationRecord
   end
 
   def self.in_progress
-    where(status: "in_progress")
+    where(status: "pending")
   end
 end
