@@ -1,9 +1,24 @@
 <p style="color: green"><%= notice %></p>
 
 <%= render @mission %>
+  <br>
+<p>Planet info</p>
+  <%= "name: #{@mission.planet.name}" %>
+  <br>
+  <%= "supply_oxygen: #{@mission.planet.supply_oxygen}" %>
+  <br>
+  <%= "supply_food: #{@mission.planet.supply_food}" %>
+  <br>
+  <%= "supply_energy: #{@mission.planet.supply_energy}" %>
+  <br>
+  <%= "radiation: #{@mission.planet.radiation}" %>
+  <br>
+  <%= "temperature: #{@mission.planet.temperature}" %>
+  <br>
+  <br>
+  <br>
 
 <div>
-  <%= link_to "Edit this mission", edit_mission_path(@mission) %> |
   <%= link_to "Back to missions", missions_path %>
 
   <%= button_to "Destroy this mission", @mission, method: :delete %>

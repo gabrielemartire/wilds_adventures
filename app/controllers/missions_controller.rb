@@ -12,15 +12,7 @@ class MissionsController < ApplicationController
 
   # GET /missions/new
   def new
-    @mission = Mission.new
-    @mission_name = [ "Apollo", "Artemis", "Ares", "Hermes", "Zeus", "Hera", "Athena", "Poseidon", "Hades", "Demeter" ].sample
-    @mission_name += " " + rand(1..99).to_s
-    @mission.name = @mission_name
-    @mission.status = "pending"
-    @mission.log = "Mission " + @mission_name + " is pending."
-    @mission.level_oxygen = 100
-    @mission.level_food = 100
-    @mission.level_energy = 100
+    @mission = Mission.create_mission
   end
 
   # GET /missions/1/edit
@@ -79,12 +71,11 @@ class MissionsController < ApplicationController
 
     def create_planet(mission)
       planet = Planet.new
-      planet.name = rand(1..999).to_s + "-" + [ "a", "b", "c", "d" ].sample
+      planet.name = rand(1..999).to_s + " " + [ "a", "b", "c", "d" ].sample
       planet.mission_id = mission.id
-
-      planet.supply_oxygen = rand(0..50)
-      planet.supply_food = rand(-30..100)
-      planet.supply_energy = rand(-100..100)
+      planet.supply_oxygen = rand(0..10)
+      planet.supply_food = rand(-3..8)
+      planet.supply_energy = rand(-10..10)
       planet.radiation = rand(0..10)
       planet.temperature = rand(-100..100)
       planet.save
