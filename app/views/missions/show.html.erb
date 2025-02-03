@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @mission %>
+
+<div>
+  <%= link_to "Edit this mission", edit_mission_path(@mission) %> |
+  <%= link_to "Back to missions", missions_path %>
+
+  <%= button_to "Destroy this mission", @mission, method: :delete %>
+</div>

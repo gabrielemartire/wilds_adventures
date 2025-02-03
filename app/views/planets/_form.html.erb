@@ -1,0 +1,52 @@
+<%= form_with(model: planet) do |form| %>
+  <% if planet.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(planet.errors.count, "error") %> prohibited this planet from being saved:</h2>
+
+      <ul>
+        <% planet.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :mission_id, style: "display: block" %>
+    <%= form.text_field :mission_id %>
+  </div>
+
+  <div>
+    <%= form.label :supply_oxygen, style: "display: block" %>
+    <%= form.number_field :supply_oxygen %>
+  </div>
+
+  <div>
+    <%= form.label :supply_food, style: "display: block" %>
+    <%= form.number_field :supply_food %>
+  </div>
+
+  <div>
+    <%= form.label :supply_energy, style: "display: block" %>
+    <%= form.number_field :supply_energy %>
+  </div>
+
+  <div>
+    <%= form.label :radiation, style: "display: block" %>
+    <%= form.number_field :radiation %>
+  </div>
+
+  <div>
+    <%= form.label :temperature, style: "display: block" %>
+    <%= form.number_field :temperature %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

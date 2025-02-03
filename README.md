@@ -1,25 +1,12 @@
-# README
+# Idle Space Mission
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Idle simulation game where space missions evolve automatically over time.
 
-Things you may want to cover:
+## Features
+- Launch missions to randomly generated planets.
+- Resources like oxygen, food, and energy deplete over time.
+- Random events impact the survival of the mission.
+- Real-time updates without page refresh using ActionCable.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# wilds_adventures
+## Technologies
+- Ruby on Rails
