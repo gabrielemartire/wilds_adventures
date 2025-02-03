@@ -1,0 +1,4 @@
+# :schedule:
+#   mission_event_job:
+#     cron: "*/4 * * * * *" # Ogni 20 secondi
+#     class: "MissionEventJob"

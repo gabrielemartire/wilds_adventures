@@ -75,7 +75,7 @@ class MissionsController < ApplicationController
 
     def create_planet(mission)
       planet = Planet.new
-      planet.name = rand(1..999).to_s + " " + [ "a", "b", "c", "d" ].sample
+      planet.name = "Q" + rand(1..9999).to_s + " # " + [ "N", "S", "W", "E" ].sample + "-"+rand(1..999).to_s + "°"
       planet.mission_id = mission.id
       planet.supply_oxygen = rand(-10..1)
       planet.supply_food = rand(-3..2)
